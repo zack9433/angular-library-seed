@@ -60,3 +60,6 @@ typings/
 # execute cli statement based upon opt-in/opt-out file
 .opt-in
 .opt-out
+
+typings
+dist

@@ -31,11 +31,17 @@
   "scripts": {
     "commitmsg": "validate-commit-msg",
     "commit": "git-cz",
+    "lint": "tslint -p tsconfig.json --type-check ./src/**/*.ts",
     "precommit": "opt --in precommit --exec 'npm run validate'",
-    "validate": "npm t",
+    "validate": "npm run lint && npm t",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand"
+    "test:ci": "jest --runInBand",
+    "cleanup": "rimraf dist",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/library.module.bundle.js --screw-ie8 --compress --mangle --comments --output dist/library.module.bundle.min.js",
+    "copy": "cpy LICENSE dist",
+    "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy"
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.1"
@@ -47,7 +53,9 @@
     "@angular/core": "^4.0.2",
     "@angular/platform-browser": "^4.0.2",
     "@angular/platform-browser-dynamic": "^4.0.2",
+    "@types/jasmine": "^2.5.47",
     "@types/jest": "^19.2.2",
+    "@types/node": "^7.0.12",
     "codelyzer": "3.0.0-beta.4",
     "commitizen": "^2.9.6",
     "cpy-cli": "^1.0.1",
@@ -59,7 +67,7 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
     "rxjs": "^5.3.0",
-    "tslint": "^5.0.0",
+    "tslint": "4.5.1",
     "typescript": "^2.2.2",
     "uglify-js": "^2.8.22",
     "validate-commit-msg": "^2.12.1",
