@@ -56,3 +56,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# execute cli statement based upon opt-in/opt-out file
+.opt-in
+.opt-out
