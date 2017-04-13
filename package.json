@@ -26,6 +26,17 @@
     "globals": {
       "__TS_CONFIG__": "./tsconfig.spec.json",
       "__TRANSFORM_HTML__": true
+    },
+    "collectCoverageFrom": [
+      "src/*.component.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
     }
   },
   "scripts": {
@@ -34,14 +45,14 @@
     "lint": "tslint -p tsconfig.json --type-check ./src/**/*.ts",
     "precommit": "opt --in precommit --exec 'npm run validate'",
     "validate": "npm run lint && npm t",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand",
     "cleanup": "rimraf dist",
     "bundling": "rollup -c",
     "minify": "uglifyjs dist/library.module.bundle.js --screw-ie8 --compress --mangle --comments --output dist/library.module.bundle.min.js",
     "copy": "cpy LICENSE dist",
-    "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy"
+    "build": "npm run validate && npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy"
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.1"
