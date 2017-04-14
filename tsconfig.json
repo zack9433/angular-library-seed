@@ -15,6 +15,7 @@
       "dom"
     ],
     "target": "es5",
+    "strictNullChecks": true,
     "skipLibCheck": true,
     "types": [
       "jasmine",
