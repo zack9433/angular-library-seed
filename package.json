@@ -40,6 +40,9 @@
     }
   },
   "scripts": {
+    "backup": "cpy --rename=library.component.ts.bak src/library.component.ts src/",
+    "restore": "mv src/library.component.ts.bak src/library.component.ts",
+    "inline": "npm run backup && ng2-inline -o src/ -f -b src/ src/*.component.ts",
     "commitmsg": "validate-commit-msg",
     "commit": "git-cz",
     "lint": "tslint -p tsconfig.json --type-check ./src/**/*.ts",
@@ -52,7 +55,9 @@
     "bundling": "rollup -c",
     "minify": "uglifyjs dist/library.module.bundle.js --screw-ie8 --compress --mangle --comments --output dist/library.module.bundle.min.js",
     "copy": "cpy LICENSE dist",
-    "build": "npm run validate && npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy"
+    "build": "npm run validate && npm run cleanup && npm run inline && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy && npm run restore",
+    "build:demo": "./build-demo",
+    "demo": "http-server ./demo"
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.1"
@@ -67,10 +72,14 @@
     "@types/jasmine": "^2.5.47",
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.12",
+    "angular2-inline-template-style": "^1.0.2",
+    "chokidar": "^1.6.1",
     "codelyzer": "3.0.0-beta.4",
     "commitizen": "^2.9.6",
+    "core-js": "^2.4.1",
     "cpy-cli": "^1.0.1",
     "cz-conventional-changelog": "^2.0.0",
+    "http-server": "^0.9.0",
     "husky": "^0.13.3",
     "jest": "^19.0.2",
     "jest-preset-angular": "^1.0.0",
@@ -78,6 +87,9 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
     "rxjs": "^5.3.0",
+    "systemjs": "^0.20.12",
+    "ts-helpers": "^1.1.2",
+    "tslib": "^1.6.0",
     "tslint": "4.5.1",
     "typescript": "^2.2.2",
     "uglify-js": "^2.8.22",

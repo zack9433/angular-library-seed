@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>angular library seed demo</title>
+</head>
+<body>
+  <app>Loading...</app>
+  <!-- tshelpers -->
+  <script src="vendor/index.js"></script>
+  <script src="vendor/shim.min.js"></script>
+  <script src="vendor/zone.min.js"></script>
+  <script src="vendor/system.src.js"></script>
+  <script>
+    System.config({
+      defaultJSExtensions: true,
+      paths: {
+        // angular bundles
+        '@angular/common': 'vendor/common.umd.js',
+        '@angular/compiler': 'vendor/compiler.umd.js',
+        '@angular/core': 'vendor/core.umd.js',
+        '@angular/platform-browser': 'vendor/platform-browser.umd.js',
+        '@angular/platform-browser-dynamic': 'vendor/platform-browser-dynamic.umd.js',
+        // other libraries
+        'rxjs/*': 'vendor/Rx.js',
+        'library': 'dist/library.module.bundle.js',
+        '*': 'dist/*'
+      }
+    });
+    System.import('main.js');
+  </script>
+</body>
+</html>
+

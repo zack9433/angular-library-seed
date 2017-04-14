@@ -2,7 +2,7 @@ export default {
   entry: 'dist/library.module.js',
   dest: 'dist/library.module.bundle.js',
   format: 'umd',
-  moduleName: 'ng.angularLirarySeed',
+  moduleName: 'library',
   external: ['@angular/core', '@angular/common', 'rxjs/Observable', 'rxjs/Observer'],
   globals: {
     '@angular/core': 'ng.core',
