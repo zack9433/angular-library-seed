@@ -13,7 +13,12 @@
     "angular 4",
     "starter",
     "library",
-    "seed"
+    "seed",
+    "module",
+    "angular module"
+  ],
+  "files": [
+    "dist"
   ],
   "config": {
     "commitizen": {
@@ -48,19 +53,21 @@
     "lint": "tslint -p tsconfig.json --type-check ./src/**/*.ts",
     "precommit": "opt --in precommit --exec 'npm run validate'",
     "validate": "npm run lint && npm t",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand",
-    "cleanup": "rimraf dist",
+    "test:ci": "jest --runInBand --coverage",
+    "clean": "rimraf dist",
     "bundling": "rollup -c",
     "minify": "uglifyjs dist/library.module.bundle.js --screw-ie8 --compress --mangle --comments --output dist/library.module.bundle.min.js",
     "copy": "cpy LICENSE dist",
-    "build": "npm run validate && npm run cleanup && npm run inline && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy && npm run restore",
+    "build": "npm run clean && npm run inline && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy && npm run restore",
     "build:demo": "./build-demo",
-    "demo": "http-server ./demo"
+    "demo": "http-server ./demo",
+    "semantic-release": "semantic-release pre && npm publish  && semantic-release post"
   },
   "peerDependencies": {
-    "@angular/core": ">=4.0.1"
+    "@angular/core": ">=4.0.0"
   },
   "devDependencies": {
     "@angular/common": "^4.0.2",
@@ -74,12 +81,12 @@
     "@types/node": "^7.0.12",
     "angular2-inline-template-style": "^1.0.2",
     "chokidar": "^1.6.1",
+    "codecov.io": "^0.1.6",
     "codelyzer": "3.0.0-beta.4",
     "commitizen": "^2.9.6",
     "core-js": "^2.4.1",
     "cpy-cli": "^1.0.1",
     "cz-conventional-changelog": "^2.0.0",
-    "http-server": "^0.9.0",
     "husky": "^0.13.3",
     "jest": "^19.0.2",
     "jest-preset-angular": "^1.0.0",
@@ -87,7 +94,7 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
     "rxjs": "^5.3.0",
-    "systemjs": "^0.20.12",
+    "systemjs": "0.19.28",
     "ts-helpers": "^1.1.2",
     "tslib": "^1.6.0",
     "tslint": "4.5.1",

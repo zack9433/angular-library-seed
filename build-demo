@@ -22,6 +22,6 @@ do
 done
 
 npm run build
-tsc -p tsconfig.demo.json
 cp dist/* demo/dist/
+tsc -p tsconfig.demo.json
 
