@@ -2,7 +2,7 @@
 
 This seed helps you to create angular library including test, build, development and release workflow.
 
-# Features
+## Features
 - Testing angular with Jest by running `npm test`.
 - Coverage report to codecov by running `npm run report-coverage`
 - Consistent commit message by running `npm run commit`.
