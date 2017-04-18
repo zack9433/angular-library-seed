@@ -21,7 +21,9 @@ do
    cp $i demo/vendor
 done
 
-npm run build
-cp dist/* demo/dist/
+npm run clean && npm run inline && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy
 tsc -p tsconfig.demo.json
-
+cp dist/* demo/dist/
+./node_modules/.bin/rollup -c rollup.demo.config.js demo/dist/demo/src/main.js > demo/main.bundle.js
+uglifyjs demo/main.bundle.js --screw-ie8 --compress --mangle --output demo/main.bundle.min.js
+npm run restore

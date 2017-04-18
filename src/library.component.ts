@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'cmp-library',
-  styles: ['body {  color: black;}'],
-  template: '<h1>{{title}}</h1>'
+    selector: 'cmp-library',
+    styleUrls: ['library.component.css'],
+    templateUrl: 'library.component.html'
 })
 export class LibraryComponent {
-  public title = 'app works!';
+    public title: string = 'app works!';
 }

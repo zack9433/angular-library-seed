@@ -2,12 +2,12 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DemoComponent } from './demo.component';
 
-const LibraryModule = require('library').LibraryModule;
+import { LibraryModule } from '../../src/library.module';
 
 @NgModule({
     bootstrap: [DemoComponent],
     declarations: [DemoComponent],
-    imports: [LibraryModule, BrowserModule],
+    imports: [BrowserModule, LibraryModule],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
     ]

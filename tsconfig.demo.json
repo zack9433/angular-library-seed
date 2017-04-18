@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
+    "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,
-    "outDir": "./demo/dist/",
+    "outDir": "demo/dist/",
     "strictNullChecks": true,
     "skipLibCheck": true,
     "lib": [
@@ -19,6 +20,6 @@
     ]
   },
   "files": [
-    "./demo/src/main.ts"
+    "demo/src/main.ts"
   ]
 }
