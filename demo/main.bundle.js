@@ -46942,7 +46942,7 @@ var DemoComponent = (function () {
 DemoComponent = __decorate$1([
     Component({
         selector: 'app',
-        template: "<div><cpm-library></cpm-library></div>"
+        template: "<div><cmp-library></cmp-library></div>"
     })
 ], DemoComponent);
 
@@ -46980,8 +46980,7 @@ var LibraryModule = (function () {
 LibraryModule = __decorate$2([
     NgModule({
         declarations: [LibraryComponent],
-        exports: [LibraryComponent],
-        imports: [CommonModule]
+        exports: [LibraryComponent]
     })
 ], LibraryModule);
 

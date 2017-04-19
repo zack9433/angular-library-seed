@@ -58,7 +58,7 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand --coverage",
     "clean": "rimraf dist",
-    "bundling": "rollup -c",
+    "bundling": "rollup -c rollup.config.js dist/library.module.js > dist/library.module.bundle.js",
     "minify": "uglifyjs dist/library.module.bundle.js --screw-ie8 --compress --mangle --comments --output dist/library.module.bundle.min.js",
     "copy": "cpy LICENSE package.json dist",
     "build": "npm run clean && npm run inline && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy && npm run restore",
