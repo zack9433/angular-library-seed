@@ -45,6 +45,7 @@
     }
   },
   "scripts": {
+    "compodoc": "compodoc -p tsconfig.json",
     "backup": "cpy --rename=library.component.ts.bak src/library.component.ts src/",
     "restore": "mv src/library.component.ts.bak src/library.component.ts",
     "inline": "npm run backup && ng2-inline -o src/ -f -b src/ src/*.component.ts",
@@ -84,6 +85,7 @@
     "codecov.io": "^0.1.6",
     "codelyzer": "3.0.0-beta.4",
     "commitizen": "^2.9.6",
+    "compodoc": "^0.0.41",
     "core-js": "^2.4.1",
     "cpy-cli": "^1.0.1",
     "cz-conventional-changelog": "^2.0.0",
