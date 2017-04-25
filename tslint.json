@@ -7,11 +7,13 @@
     "directive-selector": [
       true,
       "attribute",
+      "dt",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
+      "cmp",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

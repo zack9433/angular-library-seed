@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
+    "importHelpers": true,
     "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -23,9 +25,12 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "pretty": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "setupJest.ts",
+    "jestGlobalMocks.ts"
   ]
 }
